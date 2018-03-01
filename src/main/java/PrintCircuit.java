@@ -1,74 +1,108 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
-import java.util.List;
+import java.util.*;
+
 
 class PrintCircuit{
-    void printCircuit(List<List<Integer>> adj)
+    /**
+     *
+     * @param adjacentVertices list of adjacent vertices for current edges
+     * @return circuit in deque list
+     */
+    Deque<Integer> printCircuit(Deque<Integer>[] adjacentVertices)
     {
-        // adj represents the adjacency list of
-        // the directed graph
-        // edge_count represents the number of edges
-        // emerging from a vertex
-        Map<Integer,Integer> edge_count = new HashMap<>();
+        // edgeCount = number of unused edges from vertex
+        Map<Integer,Integer> edgeCount = new HashMap<>();
 
-        for (int i=0; i<adj.size(); i++)
+        //populate edge count
+        for (int i=0; i<adjacentVertices.length; i++)
         {
-            //find the count of edges to keep track
-            //of unused edges
-            edge_count.put(i, adj.get(i).size());
+            edgeCount.put(i, adjacentVertices[i].size());
         }
 
-        if (adj.size()==0)
-            return; //empty graph
+        // return empty list for empty graph
+        if (adjacentVertices.length==0)
+            return new LinkedList<>(); //empty graph
 
-        // Maintain a stack to keep vertices
-        Stack<Integer> curr_path = new Stack<>();
+        // Stack for the path in the current iteration
+        Deque<Integer> currentPath = new ArrayDeque<>();
 
-        // vector to store final circuit
-        List<Integer> circuit = new ArrayList<>();
+        // queue for the final circuit
+        Deque<Integer> circuit = new LinkedList<>();
 
         // start from any vertex
-        curr_path.push(0);
-        int curr_v = 0; // Current vertex
+        currentPath.push(0);
+        int currentVertexNumber = 0; // Current vertex
 
-        while (!curr_path.empty())
+        while (!currentPath.isEmpty())
         {
             // If there's remaining edge
-            if (edge_count.containsKey(curr_v))
+            if (edgeCount.get(currentVertexNumber) > 0)
             {
                 // Push the vertex
-                curr_path.push(curr_v);
+                currentPath.push(currentVertexNumber);
 
+                Deque<Integer> currentVertex = adjacentVertices[currentVertexNumber];
                 // Find the next vertex using an edge
-                int next_v = adj.get(curr_v).get(0); //??not sure if this is right
+                int nextVertexNumber = currentVertex.pop();
 
                 // and remove that edge
-                edge_count.put(curr_v,edge_count.get(curr_v)-1);
-                adj.get(curr_v).remove(0); //??this probably isn't right
+                edgeCount.put(currentVertexNumber,edgeCount.get(currentVertexNumber)-1);
 
                 // Move to next vertex
-                curr_v = next_v;
+                currentVertexNumber = nextVertexNumber;
             }
 
             // back-track to find remaining circuit
             else
             {
-//                circuit.push_back(curr_v); //TODO: figure out what to do here
+                circuit.add(currentVertexNumber);
 
                 // Back-tracking
-//                curr_v = curr_path.top();  //TODO: what does this mean?
-                curr_path.pop();
+                currentVertexNumber = currentPath.pop();
             }
         }
 
         // we've got the circuit, now print it in reverse
-        for (int i=circuit.size()-1; i>=0; i--)
+        while (!circuit.isEmpty())
         {
-            System.out.println(circuit.get(i));
-            if (i!=0)
-                System.out.println(" -> ");
+            System.out.print(circuit.pop() + " ");
         }
+        System.out.println();
+        return circuit;
+    }
+
+
+    public static void main(String[] args)
+    {
+        PrintCircuit pc = new PrintCircuit();
+        //vector< vector<int> > adj1, adj2;
+        Deque<Integer>[] adj1 = new Deque[3];
+        for(int i=0;i<adj1.length;i++){
+            adj1[i] = new ArrayDeque<>();
+        }
+        Deque<Integer>[] adj2 = new Deque[7];
+        for(int i=0;i<adj2.length;i++){
+            adj2[i] = new ArrayDeque<>();
+        }
+
+
+        // Build the edges
+        adj1[0].push(1);
+        adj1[1].push(2);
+        adj1[2].push(0);
+        pc.printCircuit(adj1);
+
+        // Input Graph 2
+        adj2[0].push(1);
+        adj2[0].push(6);
+        adj2[1].push(2);
+        adj2[2].push(0);
+        adj2[2].push(3);
+        adj2[3].push(4);
+        adj2[4].push(2);
+        adj2[4].push(5);
+        adj2[5].push(0);
+        adj2[6].push(4);
+        pc.printCircuit(adj2);
+
     }
 }
