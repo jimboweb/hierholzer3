@@ -61,42 +61,14 @@ class PrintCircuit{
 
         // TODO: 3/2/18 0) getInput, 1) buildGraph 2) if(!isEven) println("0") and quit, 3) makeEulerianCircuit
         PrintCircuit pc = new PrintCircuit();
-        pc.inputAndPrintCircuit();
-//        Deque<Integer>[] adj1 = new Deque[3];
-//        for(int i=0;i<adj1.length;i++){
-//            adj1[i] = new ArrayDeque<>();
-//        }
-//        Deque<Integer>[] adj2 = new Deque[7];
-//        for(int i=0;i<adj2.length;i++){
-//            adj2[i] = new ArrayDeque<>();
-//        }
-//
-//
-//        // Build the edges
-//        adj1[0].push(1);
-//        adj1[1].push(2);
-//        adj1[2].push(0);
-//        pc.makeEulerianCircuit(adj1);
-//
-//        // Input Graph 2
-//        adj2[0].push(1);
-//        adj2[0].push(6);
-//        adj2[1].push(2);
-//        adj2[2].push(0);
-//        adj2[2].push(3);
-//        adj2[3].push(4);
-//        adj2[4].push(2);
-//        adj2[4].push(5);
-//        adj2[5].push(0);
-//        adj2[6].push(4);
-//        pc.makeEulerianCircuit(adj2);
+        pc.inputAndPrintCircuit(pc.new ConsoleOutput());
 
     }
 
 
-    private void inputAndPrintCircuit(){
+    private void inputAndPrintCircuit(Outputter outputter){
         Scanner scanner = new Scanner(System.in);
-        List<Integer>[] inputs;
+        List<List<Integer>> inputs;
         List<Integer> in = new ArrayList<>();
         in.add(scanner.nextInt());
         in.add(scanner.nextInt());
@@ -105,13 +77,13 @@ class PrintCircuit{
             System.exit(0);
         }
         //set the capacity of the array in advance to save a few microseconds.
-        inputs = new ArrayList[in.get(1)+1];
-        inputs[0] = in;
-        for (int i = 0; i < inputs.length-1; i++) {
+        inputs = new ArrayList<>(in.get(1)+1);
+        inputs.add(in);
+        for (int i = 0; i < inputs.get(0).get(1); i++) {
             in = new ArrayList<>();
             in.add(scanner.nextInt());
             in.add(scanner.nextInt());
-            inputs[i+1]=in;
+            inputs.add(in);
 
         }
         Deque<Integer>[] graph = buildGraph(inputs);
@@ -135,9 +107,9 @@ class PrintCircuit{
      * @param inputs list of integer pair lists from input. first list is the number of nodes and edges.
      * @return arrayList of Dequeues to represent the edges in the graph. empty array means graph isn't even and has no Eulerian circuit.
      */
-    private Deque<Integer>[] buildGraph(List<Integer>[] inputs){
-        int numberOfNodes = inputs[0].get(0);
-        int numberOfEdges = inputs[0].get(1);
+    private Deque<Integer>[] buildGraph(List<List<Integer>> inputs){
+        int numberOfNodes = inputs.get(0).get(0);
+        int numberOfEdges = inputs.get(0).get(1);
         Deque<Integer>[] edges = new Deque[numberOfEdges];
         for(int i=0;i<edges.length;i++){
             edges[i] = new ArrayDeque<>();
@@ -145,8 +117,8 @@ class PrintCircuit{
         //evenChecker is array for each node where
         // [0] = inputs and [1] = outputs.
         int[][] evenChecker = new int[numberOfNodes][2];
-        for(int i=1;i<inputs.length;i++){
-            List<Integer> input = inputs[i];
+        for(int i=1;i<inputs.size();i++){
+            List<Integer> input = inputs.get(i);
             int from = input.get(0)-1;
             int to = input.get(1)-1;
             evenChecker[from][0]++;
@@ -176,5 +148,25 @@ class PrintCircuit{
 
 
 
+    interface Outputter{
+        public void output(String output);
+        public void outputLine(String output);
+        public void newLine();
+    }
+
+
+    class ConsoleOutput implements Outputter{
+        public void output(String output) {
+            System.out.print(output);
+        }
+
+        public void outputLine(String output){
+            System.out.println(output);
+        }
+
+        public void newLine(){
+            System.out.println();
+        }
+    }
 
 }
