@@ -27,14 +27,15 @@ class PrintCircuit{
 
         while (!currentPath.isEmpty())
         {
+            //if there are outgoing edges
             if (edges[currentVertexNumber].size() > 0)
             {
                 currentPath.push(currentVertexNumber);
-                Deque<Integer> currentVertex = edges[currentVertexNumber];
-                int nextVertexNumber = currentVertex.pop();
+                int nextVertexNumber = edges[currentVertexNumber].pop();
                 currentVertexNumber = nextVertexNumber;
             }
 
+            // otherwise step back
             else
             {
                 circuit.add(currentVertexNumber);
@@ -56,9 +57,11 @@ class PrintCircuit{
     }
 
 
+    /**
+     * Get the input, check to make sure the graph is even and run the printCircuit function
+     */
     private void inputAndPrintCircuit(){
         Scanner scanner = new Scanner(System.in);
-        List<List<Integer>> inputs;
         int[] in = new int[2];
         in[0] = scanner.nextInt();
         in[1] = scanner.nextInt();
@@ -67,6 +70,9 @@ class PrintCircuit{
         {
             edges[i] = new ArrayDeque<>();
         }
+
+        // evenChecker is a Nx2 array where [0] = incoming edges and [1] = outgoing edges
+        //should be equal or graph isn't Eulerian
         int[][] evenChecker = new int[in[0]][2];
         for (int i = 0; i < in[1]; i++) {
             int from = scanner.nextInt()-1;
@@ -90,7 +96,11 @@ class PrintCircuit{
         System.out.println();
     }
 
-
+    /**
+     * checks to make sure that incoming edges = outgoing edges
+     * @param evenChecker a Nx2 array where [0] = incoming edges and [1] = outgoing edges
+     * @return true if incoming eges = outgoing edges, false otherwise
+     */
     private boolean isGraphEven(int[][] evenChecker){
         for(int[] evenCheck:evenChecker){
             if(evenCheck[0]!=evenCheck[1]){
