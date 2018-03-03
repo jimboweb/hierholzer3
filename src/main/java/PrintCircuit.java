@@ -59,14 +59,13 @@ class PrintCircuit{
     public static void main(String[] args)
     {
 
-        // TODO: 3/2/18 0) getInput, 1) buildGraph 2) if(!isEven) println("0") and quit, 3) makeEulerianCircuit
         PrintCircuit pc = new PrintCircuit();
-        pc.inputAndPrintCircuit(pc.new ConsoleOutput());
+        pc.inputAndPrintCircuit();
 
     }
 
 
-    private void inputAndPrintCircuit(Outputter outputter){
+    private void inputAndPrintCircuit(){
         Scanner scanner = new Scanner(System.in);
         List<List<Integer>> inputs;
         List<Integer> in = new ArrayList<>();
@@ -94,8 +93,7 @@ class PrintCircuit{
             System.out.println("1");
         }
         Deque<Integer> circuit = makeEulerianCircuit(graph);
-        circuit.removeFirst();
-        while(!circuit.isEmpty()){
+        while(circuit.size()>1){
             int nextNode = circuit.pollLast()+1;
             System.out.print(nextNode + " ");
         }
@@ -116,13 +114,14 @@ class PrintCircuit{
         }
         //evenChecker is array for each node where
         // [0] = inputs and [1] = outputs.
-        int[][] evenChecker = new int[numberOfNodes][2];
+
+        int[] evenChecker = new int[numberOfNodes];
         for(int i=1;i<inputs.size();i++){
             List<Integer> input = inputs.get(i);
             int from = input.get(0)-1;
             int to = input.get(1)-1;
-            evenChecker[from][0]++;
-            evenChecker[to][1]++;
+            evenChecker[from]++;
+            evenChecker[to]--;
             edges[from].push(to);
         }
 
@@ -134,12 +133,9 @@ class PrintCircuit{
         return edges;
     }
 
-    private boolean isGraphEven(int[][] evenChecker){
-        for(int[] evenCheck:evenChecker){
-            if(evenCheck.length!=2){
-                throw new IllegalArgumentException("evenChecker must be array of size-2 arrays");
-            }
-            if(evenCheck[0]!=evenCheck[1]){
+    private boolean isGraphEven(int[] evenChecker){
+        for(int evenCheck:evenChecker){
+            if(evenCheck!=0){
                 return false;
             }
         }
@@ -147,26 +143,5 @@ class PrintCircuit{
     }
 
 
-
-    interface Outputter{
-        public void output(String output);
-        public void outputLine(String output);
-        public void newLine();
-    }
-
-
-    class ConsoleOutput implements Outputter{
-        public void output(String output) {
-            System.out.print(output);
-        }
-
-        public void outputLine(String output){
-            System.out.println(output);
-        }
-
-        public void newLine(){
-            System.out.println();
-        }
-    }
 
 }

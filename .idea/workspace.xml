@@ -24,17 +24,11 @@
       <file leaf-file-name="PrintCircuit.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/PrintCircuit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="97" column="32" lean-forward="false" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+            <state relative-caret-position="393">
+              <caret line="137" column="24" lean-forward="false" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
               <folding>
                 <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
                 <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
-                <element signature="e#4980#4981#0" expanded="true" />
-                <element signature="e#5028#5029#0" expanded="true" />
-                <element signature="e#5076#5077#0" expanded="true" />
-                <element signature="e#5126#5127#0" expanded="true" />
-                <element signature="e#5158#5159#0" expanded="true" />
-                <element signature="e#5202#5203#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -577,19 +571,19 @@
       <option name="presentableId" value="Default" />
       <updated>1519850449697</updated>
       <workItem from="1519850451277" duration="4671000" />
-      <workItem from="1520002319129" duration="7023000" />
+      <workItem from="1520002319129" duration="9966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11694000" />
+    <option name="totallyTimeSpent" value="14637000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="84" y="79" width="1375" height="837" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -626,7 +620,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -657,12 +651,6 @@
           <folding>
             <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
             <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
-            <element signature="e#4980#4981#0" expanded="true" />
-            <element signature="e#5028#5029#0" expanded="true" />
-            <element signature="e#5076#5077#0" expanded="true" />
-            <element signature="e#5126#5127#0" expanded="true" />
-            <element signature="e#5158#5159#0" expanded="true" />
-            <element signature="e#5202#5203#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -704,17 +692,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PrintCircuit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="97" column="32" lean-forward="false" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+        <state relative-caret-position="393">
+          <caret line="137" column="24" lean-forward="false" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
           <folding>
             <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
             <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
-            <element signature="e#4980#4981#0" expanded="true" />
-            <element signature="e#5028#5029#0" expanded="true" />
-            <element signature="e#5076#5077#0" expanded="true" />
-            <element signature="e#5126#5127#0" expanded="true" />
-            <element signature="e#5158#5159#0" expanded="true" />
-            <element signature="e#5202#5203#0" expanded="true" />
           </folding>
         </state>
       </provider>
