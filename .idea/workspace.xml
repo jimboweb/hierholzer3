@@ -24,11 +24,11 @@
       <file leaf-file-name="PrintCircuit.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/PrintCircuit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="137" column="24" lean-forward="false" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
+            <state relative-caret-position="378">
+              <caret line="117" column="55" lean-forward="false" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="55" />
               <folding>
                 <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
-                <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+                <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -571,12 +571,12 @@
       <option name="presentableId" value="Default" />
       <updated>1519850449697</updated>
       <workItem from="1519850451277" duration="4671000" />
-      <workItem from="1520002319129" duration="9966000" />
+      <workItem from="1520002319129" duration="10664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14637000" />
+    <option name="totallyTimeSpent" value="15335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="84" y="79" width="1375" height="837" extended-state="0" />
@@ -620,7 +620,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="28" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -650,7 +650,7 @@
           <caret line="66" column="48" lean-forward="false" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
           <folding>
             <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
-            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -692,11 +692,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PrintCircuit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="137" column="24" lean-forward="false" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
+        <state relative-caret-position="378">
+          <caret line="117" column="55" lean-forward="false" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="55" />
           <folding>
             <element signature="docComment;method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
-            <element signature="method#makeEulerianCircuit#0;class#PrintCircuit#0" expanded="false" />
+            <element signature="method#inputAndPrintCircuit#0;class#PrintCircuit#0" expanded="false" />
           </folding>
         </state>
       </provider>

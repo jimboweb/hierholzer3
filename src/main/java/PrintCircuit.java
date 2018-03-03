@@ -115,13 +115,13 @@ class PrintCircuit{
         //evenChecker is array for each node where
         // [0] = inputs and [1] = outputs.
 
-        int[] evenChecker = new int[numberOfNodes];
+        int[][] evenChecker = new int[numberOfNodes][2];
         for(int i=1;i<inputs.size();i++){
             List<Integer> input = inputs.get(i);
             int from = input.get(0)-1;
             int to = input.get(1)-1;
-            evenChecker[from]++;
-            evenChecker[to]--;
+            evenChecker[from][0]++;
+            evenChecker[to][1]++;
             edges[from].push(to);
         }
 
@@ -133,9 +133,9 @@ class PrintCircuit{
         return edges;
     }
 
-    private boolean isGraphEven(int[] evenChecker){
-        for(int evenCheck:evenChecker){
-            if(evenCheck!=0){
+    private boolean isGraphEven(int[][] evenChecker){
+        for(int[] evenCheck:evenChecker){
+            if(evenCheck[0]!=evenCheck[1]){
                 return false;
             }
         }
