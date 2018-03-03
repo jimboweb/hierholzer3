@@ -12,6 +12,8 @@
     <orderEntry type="module" module-name="hierholzer3_main" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="jfreechart-1.0" level="project" />
+    <orderEntry type="library" name="jfreechart-1.0.19-demo" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="hierholzer3_main" />
 </module>

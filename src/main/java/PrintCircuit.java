@@ -3,6 +3,7 @@ import java.util.*;
 
 
 class PrintCircuit{
+    int loopCount = 0; //debug
     /**
      *
      * @param edges list of adjacent vertices for current edges
@@ -27,6 +28,7 @@ class PrintCircuit{
 
         while (!currentPath.isEmpty())
         {
+            loopCount++; //debug
             //if there are outgoing edges
             if (edges[currentVertexNumber].size() > 0)
             {
@@ -69,6 +71,7 @@ class PrintCircuit{
         for(int i=0;i<in[0];i++)
         {
             edges[i] = new ArrayDeque<>();
+            loopCount++; //debug
         }
 
         // evenChecker is a Nx2 array where [0] = incoming edges and [1] = outgoing edges
@@ -92,6 +95,7 @@ class PrintCircuit{
         while(circuit.size()>1){
             int nextNode = circuit.pollLast()+1;
             System.out.print(nextNode + " ");
+            loopCount++; //debug
         }
         System.out.println();
     }
@@ -101,9 +105,10 @@ class PrintCircuit{
      * @param evenChecker a Nx2 array where [0] = incoming edges and [1] = outgoing edges
      * @return true if incoming eges = outgoing edges, false otherwise
      */
-    private boolean isGraphEven(int[][] evenChecker){
+    public boolean isGraphEven(int[][] evenChecker){
         for(int[] evenCheck:evenChecker){
             if(evenCheck[0]!=evenCheck[1]){
+                loopCount++; //debug
                 return false;
             }
         }
